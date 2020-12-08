@@ -1,0 +1,98 @@
+<div class="container">
+  <h2 class="text-center">Doctor Profile</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="profileForm">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input [class.is-invalid]="firstName.touched && firstName.invalid" class="form-control"
+             formControlName="firstName" id="firstName" type="text">
+      <small *ngIf="firstName.touched && firstName.invalid" class="text-danger">First Name is required</small>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input [class.is-invalid]="lastName.touched && lastName.invalid" class="form-control" formControlName="lastName"
+             id="lastName" type="text">
+      <small *ngIf="lastName.touched && lastName.invalid" class="text-danger">Last Name is required</small>
+    </div>
+    <div class="form-group">
+      <label for="dob">Birth Date</label>
+      <input [class.is-invalid]="dob.touched && dob.invalid" class="form-control" formControlName="dob" id="dob"
+             type="date">
+      <small *ngIf="dob.touched && dob.invalid" class="text-danger">Birth Date is required</small>
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input [class.is-invalid]="city.touched && city.invalid" class="form-control" formControlName="city" id="city"
+             type="text">
+      <small *ngIf="city.touched && city.invalid" class="text-danger">City is required</small>
+    </div>
+    <div class="form-group">
+      <label for="state">State</label>
+      <input [class.is-invalid]="state.touched && state.invalid" class="form-control" formControlName="state" id="state"
+             type="text">
+      <small *ngIf="state.touched && state.invalid" class="text-danger">State is required</small>
+    </div>
+    <div class="form-group">
+      <label for="country">Country</label>
+      <input [class.is-invalid]="country.touched && country.invalid" class="form-control" formControlName="country"
+             id="country" type="text">
+      <small *ngIf="country.touched && country.invalid" class="text-danger">Country is required</small>
+    </div>
+    <div class="form-group">
+      <label for="pinCode">Pin Code</label>
+      <input [class.is-invalid]="pinCode.touched && pinCode.invalid" class="form-control" formControlName="pinCode"
+             id="pinCode" type="text">
+      <small *ngIf="pinCode.touched && pinCode.invalid" class="text-danger">Pin Code is required</small>
+    </div>
+    <div class="form-group">
+      <label for="contact">Contact No</label>
+      <input [class.is-invalid]="contact.touched && contact.invalid" class="form-control" formControlName="contact"
+             id="contact" type="tel">
+      <div *ngIf="contact.invalid">
+        <small *ngIf="contact.dirty && contact.errors?.required" class="text-danger">Contact is required</small>
+        <small *ngIf="contact.errors?.pattern" class="text-danger">Contact should be 10 digits long and numeric</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input [class.is-invalid]="email.touched && email.invalid" class="form-control" formControlName="email" id="email"
+             type="email">
+      <div *ngIf="email.touched && email.invalid">
+        <small *ngIf="email.errors?.required" class="text-danger">Email is required</small>
+        <small *ngIf="email.errors?.email" class="text-danger">Invalid Email</small>
+      </div>
+    </div>
+    <h3>Qualifications</h3>
+    <div class="btn-group">
+      <button (click)="addQualification()" class="btn btn-secondary" type="button">Add</button>
+      <button (click)="removeQualification()" class="btn btn-secondary" type="button">Remove</button>
+    </div>
+    <div class="form-group" formArrayName="qualifications">
+      <div *ngFor="let qualification of qualifications.controls; let i=index;">
+        <label>Qualification{{i + 1}}</label>
+        <input [formControlName]="i" class="form-control" type="text">
+      </div>
+      <small *ngIf="qualifications.touched && qualifications.invalid" class="text-danger">Please fill all qualification
+        fields</small>
+    </div>
+    <div class="form-group">
+      <label for="specialization">Specialization</label>
+      <input [class.is-invalid]="specialization.invalid && specialization.touched" class="form-control"
+             formControlName="specialization" id="specialization" type="text">
+      <small *ngIf="specialization.invalid && specialization.touched" class="text-danger">Specialization is
+        required</small>
+    </div>
+    <div class="form-group">
+      <label for="loginName">Login Name</label>
+      <input [class.is-invalid]="loginName.invalid && loginName.touched" class="form-control"
+             formControlName="loginName" id="loginName" type="text">
+      <small *ngIf="loginName.invalid && loginName.touched" class="text-danger">Login Name is required</small>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input [class.is-invalid]="password.touched && password.invalid" class="form-control" formControlName="passcode"
+             id="password" type="password">
+      <small *ngIf="password.invalid && password.touched" class="text-danger">Specialization is required</small>
+    </div>
+    <button [disabled]="profileForm.invalid" class="btn btn-primary" type="submit">Update</button>
+  </form>
+</div>

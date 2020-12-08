@@ -1,0 +1,31 @@
+<div class="container">
+  <h3 class="text-center">Doctor Details</h3>
+  <table class="table table-bordered table-dark">
+    <tbody>
+    <tr>
+      <th scope="row">Doctor Name</th>
+      <td>{{doctor.firstName}} {{doctor.lastName}}</td>
+    </tr>
+    <tr>
+      <th scope="row">DOB</th>
+      <td>{{doctor.dob}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Email</th>
+      <td>{{doctor.email}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Qualifications</th>
+      <td>{{doctor.qualifications}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Specialization</th>
+      <td>{{doctor.specialization}}</td>
+    </tr>
+    <tr *ngIf="isDoctor">
+      <th scope="row">Book next appointment</th>
+      <td><a routerLink="../doctors/home/book-appointment">Click here</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

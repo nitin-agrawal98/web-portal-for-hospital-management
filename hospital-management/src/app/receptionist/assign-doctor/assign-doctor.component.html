@@ -1,0 +1,39 @@
+<div class="container">
+  <h2 class="text-center">Approve Appointment Request</h2>
+  <form [formGroup]="form">
+    <div class="form-group">
+      <label for="patient">Patient</label>
+      <input class="form-control" disabled formControlName="patient" id="patient" type="text">
+    </div>
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input [class.is-invalid]="date.touched && date.invalid" class="form-control" formControlName="date" id="date"
+             type="date">
+      <small *ngIf="date.touched && date.invalid" class="text-danger">Date is required</small>
+    </div>
+    <div class="form-group">
+      <label for="time">Time</label>
+      <input [class.is-invalid]="time.touched && time.invalid" class="form-control" formControlName="time" id="time"
+             type="time">
+      <small *ngIf="time.touched && time.invalid" class="text-danger">Time is required</small>
+    </div>
+    <div class="form-group">
+      <label for="healthProblem">Health Problem</label>
+      <input class="form-control" disabled formControlName="healthProblem" id="healthProblem" type="text">
+    </div>
+    <div class="form-group">
+      <label for="doctor">Doctor</label>
+      <select [class.is-invalid]="!assignedDoctor" class="form-control" formControlName="doctor" id="doctor">
+        <option (click)="assignedDoctor=doctor;"
+                *ngFor="let doctor of doctors">{{doctor.firstName}} {{doctor.lastName}}</option>
+      </select>
+      <small *ngIf="!assignedDoctor" class="text-danger">Doctor is required</small>
+    </div>
+    <div class="d-flex justify-content-between">
+      <button (click)="onApprove()" [disabled]="form.invalid || !assignedDoctor" class="btn btn-success" type="submit">
+        Approve
+      </button>
+      <button (click)="onCancel()" class="btn btn-success" type="submit">Cancel</button>
+    </div>
+  </form>
+</div>

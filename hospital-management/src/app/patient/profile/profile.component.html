@@ -1,0 +1,99 @@
+<div class="container">
+  <h2 class="text-center">Patient profile</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="profileForm">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input [class.is-invalid]="firstName.touched && firstName.invalid" class="form-control"
+             formControlName="firstName" id="firstName" type="text">
+      <small *ngIf="firstName.touched && firstName.invalid" class="text-danger">First Name is required</small>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input [class.is-invalid]="lastName.touched && lastName.invalid" class="form-control" formControlName="lastName"
+             id="lastName" type="text">
+      <small *ngIf="lastName.touched && lastName.invalid" class="text-danger">Last Name is required</small>
+    </div>
+    <div class="form-group">
+      <label for="dob">Birth Date</label>
+      <input [class.is-invalid]="dob.touched && dob.invalid" class="form-control" formControlName="dob" id="dob"
+             type="date">
+      <small *ngIf="dob.touched && dob.invalid" class="text-danger">Birth Date is required</small>
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input [class.is-invalid]="city.touched && city.invalid" class="form-control" formControlName="city" id="city"
+             type="text">
+      <small *ngIf="city.touched && city.invalid" class="text-danger">City is required</small>
+    </div>
+    <div class="form-group">
+      <label for="state">State</label>
+      <input [class.is-invalid]="state.touched && state.invalid" class="form-control" formControlName="state" id="state"
+             type="text">
+      <small *ngIf="state.touched && state.invalid" class="text-danger">State is required</small>
+    </div>
+    <div class="form-group">
+      <label for="country">Country</label>
+      <input [class.is-invalid]="country.touched && country.invalid" class="form-control" formControlName="country"
+             id="country" type="text">
+      <small *ngIf="country.touched && country.invalid" class="text-danger">Country is required</small>
+    </div>
+    <div class="form-group">
+      <label for="pinCode">Pin Code</label>
+      <input [class.is-invalid]="pinCode.touched && pinCode.invalid" class="form-control" formControlName="pinCode"
+             id="pinCode" type="text">
+      <small *ngIf="pinCode.touched && pinCode.invalid" class="text-danger">Pin Code is required</small>
+    </div>
+    <div class="form-group">
+      <label for="contact">Contact No</label>
+      <input [class.is-invalid]="contact.touched && contact.invalid" class="form-control" formControlName="contact"
+             id="contact" type="tel">
+      <div *ngIf="contact.invalid">
+        <small *ngIf="contact.dirty && contact.errors?.required" class="text-danger">Contact is required</small>
+        <small *ngIf="contact.errors?.pattern" class="text-danger">Contact should be 10 digits long and numeric</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input [class.is-invalid]="email.touched && email.invalid" class="form-control" formControlName="email" id="email"
+             type="email">
+      <div *ngIf="email.touched && email.invalid">
+        <small *ngIf="email.errors?.required" class="text-danger">Email is required</small>
+        <small *ngIf="email.errors?.email" class="text-danger">Invalid Email</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="pastIllness">Past Illness</label>
+      <input class="form-control" formControlName="pastIllness" id="pastIllness" type="text">
+    </div>
+    <div class="form-group">
+      <label for="loginName">Login Name</label>
+      <input [class.is-invalid]="loginName.touched && loginName.invalid" class="form-control"
+             formControlName="loginName" id="loginName" type="text">
+      <div *ngIf="loginName.touched && loginName.invalid">
+        <small *ngIf="loginName.errors?.required" class="text-danger">Login Name is required</small>
+        <small *ngIf="loginName.errors?.minlength" class="text-danger">Login Name must be at least 3 characters
+          long</small>
+        <small *ngIf="loginName.errors?.maxlength" class="text-danger">Login Name can contain at most 10
+          characters</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input [class.is-invalid]="password.touched && password.invalid" class="form-control" formControlName="passcode"
+             id="password" type="password">
+      <div *ngIf="password.touched && password.invalid">
+        <small *ngIf="password.errors?.required" class="text-danger">Password is required</small>
+        <small *ngIf="password.errors?.minlength" class="text-danger">Password must be at least 8 characters
+          long</small>
+        <small *ngIf="password.errors?.maxlength" class="text-danger">Password can contain at most 19 characters</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="question">Secret Question</label>
+      <input [class.is-invalid]="question.touched && question.invalid" class="form-control" formControlName="question"
+             id="question" type="text">
+      <small *ngIf="question.touched && question.invalid" class="text-danger">Question is required</small>
+    </div>
+    <button [disabled]="profileForm.invalid" class="btn btn-primary" type="submit">Update</button>
+  </form>
+</div>

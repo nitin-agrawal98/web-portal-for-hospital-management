@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a class="navbar-brand text-warning">WeCare</a>
+  <ul class="navbar-nav mr-auto">
+    <li class="dropdown" routerLinkActive="active">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+        Patients
+      </a>
+      <ul class="dropdown-menu">
+        <li><a [queryParams]="{status: 'inProgress'}" [routerLink]="['patients']" class="dropdown-item">In Progress</a>
+        </li>
+        <li><a [queryParams]="{status: 'approved'}" [routerLink]="['patients']" class="dropdown-item">Approved</a></li>
+        <li><a [queryParams]="{status: 'cancelled'}" [routerLink]="['patients']" class="dropdown-item">Cancelled</a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="appointments/upcoming" routerLinkActive="active">Upcoming Appointments</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="appointments/history" routerLinkActive="active">Appointments History</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="requests" routerLinkActive="active">Pending Appointment Requests</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="doctors" routerLinkActive="active">Add a Doctor</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/about">About Us</a>
+    </li>
+    <li class="nav-item">
+      <button (click)="signOut()" class="btn btn-success">Sign out</button>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

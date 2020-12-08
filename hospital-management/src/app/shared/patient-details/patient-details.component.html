@@ -1,0 +1,27 @@
+<div class="container">
+  <h3 class="text-center">Patient Details</h3>
+  <table class="table table-bordered table-dark">
+    <tbody>
+    <tr>
+      <th scope="row">Patient Name</th>
+      <td>{{patient.firstName}} {{patient.lastName}}</td>
+    </tr>
+    <tr>
+      <th scope="row">DOB</th>
+      <td>{{patient.dob}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Email</th>
+      <td>{{patient.email}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Past Illness</th>
+      <td>{{patient.pastIllness}}</td>
+    </tr>
+    <tr *ngIf="isDoctor">
+      <th scope="row">Book next appointment</th>
+      <td><a routerLink="../doctors/home/book-appointment">Click here</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

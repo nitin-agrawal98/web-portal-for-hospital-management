@@ -1,0 +1,33 @@
+<h2 *ngIf="!requests" class="text-center">No Pending Requests</h2>
+<div *ngIf="requests">
+  <h2 class="text-center">Pending Requests</h2>
+  <table [dataSource]="requests" class="w-100 mat-elevation-z8" mat-table>
+    <ng-container matColumnDef="serial">
+      <th *matHeaderCellDef mat-header-cell>Serial No.</th>
+      <td *matCellDef="let request; let i=index;" mat-cell>{{i + 1}}</td>
+    </ng-container>
+    <ng-container matColumnDef="patient">
+      <th *matHeaderCellDef mat-header-cell>Patient</th>
+      <td *matCellDef="let request" mat-cell>{{request.patient.firstName}} {{request.patient.lastName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <th *matHeaderCellDef mat-header-cell>Date</th>
+      <td *matCellDef="let request" mat-cell>{{request.date}}</td>
+    </ng-container>
+    <ng-container matColumnDef="time">
+      <th *matHeaderCellDef mat-header-cell>Time</th>
+      <td *matCellDef="let request" mat-cell>{{request.time}}</td>
+    </ng-container>
+    <ng-container matColumnDef="healthProblem">
+      <th *matHeaderCellDef mat-header-cell>Health Problem</th>
+      <td *matCellDef="let request" mat-cell>{{request.healthProblem}}</td>
+    </ng-container>
+    <ng-container matColumnDef="approve">
+      <th *matHeaderCellDef mat-header-cell>Approve/Cancel</th>
+      <td *matCellDef="let request" mat-cell><a [queryParams]="{id: request.id}"
+                                                [routerLink]="['../approve-cancel/request']">Click Here</a></td>
+    </ng-container>
+    <tr *matHeaderRowDef="getDisplayedColumns()" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: getDisplayedColumns();" mat-row></tr>
+  </table>
+</div>

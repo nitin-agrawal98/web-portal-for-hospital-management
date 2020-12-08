@@ -1,0 +1,26 @@
+<div>
+  <h2 class=" m-5 text-center">WeCare Hospital</h2>
+  <div class="d-flex row justify-content-center">
+    <a (click)="setRole('ROLE_PATIENT')" class="m-2 card" routerLink="/login">
+      <img alt="Patient image" class="card-img-top"
+           src="https://www.flaticon.com/svg/static/icons/svg/1467/1467464.svg">
+      <div class="card-body">
+        <h5 class="card-title text-center">I'm a patient</h5>
+      </div>
+    </a>
+    <a (click)="setRole('ROLE_DOCTOR')" class="m-2 card" routerLink="/login">
+      <img alt="Doctor image" class="card-img-top"
+           src="https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg">
+      <div class="card-body">
+        <h5 class="card-title text-center">I'm a doctor</h5>
+      </div>
+    </a>
+    <a (click)="setRole('ROLE_ADMIN')" class="m-2 card" routerLink="/login">
+      <img alt="Receptionist image" class="card-img-top"
+           src="https://st2.depositphotos.com/1071184/7550/v/950/depositphotos_75503103-stock-illustration-business-customer-care-service.jpg">
+      <div class="card-body">
+        <h5 class="card-title text-center">I'm a receptionist</h5>
+      </div>
+    </a>
+  </div>
+</div>

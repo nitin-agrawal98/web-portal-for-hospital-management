@@ -1,0 +1,19 @@
+<div class="container">
+  <div>
+    <h2 class="text-center">Feedback</h2>
+    <div *ngIf="isPatient" class="text-center">
+      <textarea [(ngModel)]="patientFeedback" cols="50" placeholder="Write feedback!" rows="4"></textarea><br>
+      <button (click)="onSubmit()" [disabled]="!patientFeedback" class="btn btn-success">Submit</button>
+    </div>
+    <div *ngIf="!isPatient">
+      <h4 *ngIf="!feedback" class="border border-primary p-5 text-danger text-center">No feedback</h4>
+      <p *ngIf="feedback" class="card border border-primary p-5">{{feedback}}</p>
+      <button (click)="forward()" *ngIf="isReceptionist && feedback" class="btn btn-warning">Forward</button>
+    </div>
+  </div>
+  <div class="mt-3">
+    <h2 class="text-center">Prescription</h2>
+    <h4 *ngIf="!prescription" class="border border-primary p-5 text-danger text-center">No prescription</h4>
+    <p *ngIf="prescription" class="card border border-primary p-5">{{prescription}}</p>
+  </div>
+</div>

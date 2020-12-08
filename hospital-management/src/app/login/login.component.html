@@ -1,0 +1,24 @@
+<div class="container">
+  <h2 class="text-center">Login Form</h2>
+  <h4 *ngIf="invalidAuth" class="text-center text-danger">Invalid username or password</h4>
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    <div class="form-group">
+      <label for="username">User Name</label>
+      <input class="form-control" formControlName="username" id="username" type="text">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input class="form-control" formControlName="password" id="password" type="password">
+    </div>
+    <div class="d-flex justify-content-between">
+      <div>
+        <button class="btn btn-success" type="submit">Log In</button>
+        <small *ngIf="isPatient" class="ml-2">Not already registered? <a routerLink="../register-patient">Create
+          account</a></small>
+      </div>
+      <div>
+        <button (click)="logout()" class="btn btn-warning" type="button">Change role</button>
+      </div>
+    </div>
+  </form>
+</div>

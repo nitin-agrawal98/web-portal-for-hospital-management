@@ -1,0 +1,2 @@
+<textarea [(ngModel)]="prescription" cols="50" placeholder="Write Prescription!" rows="4"></textarea><br>
+<button (click)="onSubmit()" [disabled]="!prescription" class="btn btn-success">Submit</button>

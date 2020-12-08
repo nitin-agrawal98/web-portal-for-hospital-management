@@ -1,0 +1,18 @@
+img {
+  width: 250px;
+  height: 200px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.card:hover {
+  box-shadow: 5px 5px 5px 5px grey;
+}
+
+.card:hover .card-body {
+  background: green;
+  color: white;
+}
