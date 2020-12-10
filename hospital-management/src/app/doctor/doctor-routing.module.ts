@@ -6,6 +6,7 @@ import {BookNextAppointmentComponent} from './book-next-appointment/book-next-ap
 import {AddPrescriptionComponent} from './add-prescription/add-prescription.component';
 import {UpdateProfileComponent} from './update-profile/update-profile.component';
 import {AppointmentsHistoryComponent} from '../shared/appointments-history/appointments-history.component';
+import {FeedbackPrescriptionComponent} from '../feedback-prescription/feedback-prescription.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -18,6 +19,7 @@ const routes: Routes = [
       {path: 'book-appointment', component: BookNextAppointmentComponent},
       {path: 'add-prescription', component: AddPrescriptionComponent},
       {path: 'update-profile', component: UpdateProfileComponent},
+      {path: 'feedback-prescription', component: FeedbackPrescriptionComponent}
     ]
   },
 ];

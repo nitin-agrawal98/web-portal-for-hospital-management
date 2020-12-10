@@ -6,6 +6,7 @@ import {UpcomingAppointmentsComponent} from '../shared/upcoming-appointments/upc
 import {RequestsComponent} from '../shared/requests/requests.component';
 import {AppointmentsHistoryComponent} from '../shared/appointments-history/appointments-history.component';
 import {ProfileComponent} from './profile/profile.component';
+import {FeedbackPrescriptionComponent} from '../feedback-prescription/feedback-prescription.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -17,7 +18,8 @@ const routes: Routes = [
       {path: 'appointments/history', component: AppointmentsHistoryComponent},
       {path: 'pending-appointments', component: RequestsComponent},
       {path: 'book-appointment', component: BookAppointmentComponent},
-      {path: 'profile', component: ProfileComponent}
+      {path: 'profile', component: ProfileComponent},
+      {path: 'feedback-prescription', component: FeedbackPrescriptionComponent}
     ]
   },
 ];

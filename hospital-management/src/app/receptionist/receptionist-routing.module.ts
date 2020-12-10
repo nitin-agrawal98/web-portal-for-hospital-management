@@ -7,6 +7,7 @@ import {AssignDoctorComponent} from './assign-doctor/assign-doctor.component';
 import {UpcomingAppointmentsComponent} from '../shared/upcoming-appointments/upcoming-appointments.component';
 import {RequestsComponent} from '../shared/requests/requests.component';
 import {AppointmentsHistoryComponent} from '../shared/appointments-history/appointments-history.component';
+import {FeedbackPrescriptionComponent} from '../feedback-prescription/feedback-prescription.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -19,7 +20,9 @@ const routes: Routes = [
       {path: 'doctors', component: DoctorRegisterComponent},
       {path: 'appointments/upcoming', component: UpcomingAppointmentsComponent},
       {path: 'appointments/history', component: AppointmentsHistoryComponent},
-      {path: 'approve-cancel/request', component: AssignDoctorComponent}]
+      {path: 'approve-cancel/request', component: AssignDoctorComponent},
+      {path: 'feedback-prescription', component: FeedbackPrescriptionComponent}
+    ]
   },
 ];
 
